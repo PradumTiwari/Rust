@@ -1,16 +1,12 @@
-enum Pradum{
-    Value(String),
-    Empty,
+fn add_world(s: &mut String) {
+    s.push_str(" world");
 }
 
-fn greet (p:Pradum){
-    match p{
-        Pradum::Value(n)=>println!("Hello Pradum"),
-        Pradum::Empty=> println!("Jeffry bezos"),
-    }
-}
+fn main() {
+    let mut name=String::from("Bob");
 
-fn main(){
-    greet(Pradum::Value("22".to_string()));
-    greet(Pradum::Empty);
+    let r1=&mut name;
+    r1.push('l');
+    println!("{}",r1);
+
 }
