@@ -1,12 +1,27 @@
-fn add_world(s: &mut String) {
-    s.push_str(" world");
+trait CanJump{
+    fn jump(&self);
 }
 
-fn main() {
-    let mut name=String::from("Bob");
+trait CanAttack{
+    fn attack(&self);
+}
 
-    let r1=&mut name;
-    r1.push('l');
-    println!("{}",r1);
+struct Ninja;
+struct Robot;
 
+impl CanJump for Ninja{
+    fn jump(&self) {
+        println!("Ninja Can jump");
+    }
+}
+
+fn perform_jump<T:CanJump>(player:T){
+    player.jump();
+}
+
+
+fn main(){
+    let ninja=Ninja;
+    
+    perform_jump(ninja);
 }
