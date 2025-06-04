@@ -1,27 +1,7 @@
-trait CanJump{
-    fn jump(&self);
+fn print_item<T:std::fmt::Debug>(item:T){
+    println!("Item : {:?}",item);
 }
-
-trait CanAttack{
-    fn attack(&self);
-}
-
-struct Ninja;
-struct Robot;
-
-impl CanJump for Ninja{
-    fn jump(&self) {
-        println!("Ninja Can jump");
-    }
-}
-
-fn perform_jump<T:CanJump>(player:T){
-    player.jump();
-}
-
 
 fn main(){
-    let ninja=Ninja;
-    
-    perform_jump(ninja);
+    print_item(10);
 }
